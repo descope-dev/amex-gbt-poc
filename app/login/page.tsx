@@ -144,13 +144,12 @@ const Page = () => {
       )}
 
       <Descope
-        flowId="sign-up-or-in"
+        flowId="sign-up-or-in-passwords-amex"
         onSuccess={(e: any) => {
-          console.log(e.detail.user);
-          // Extract user email from the Descope authentication response
+          // Extract user email from the authentication response
           const userEmail = e.detail.user.email;
 
-          // Run the OIDC process with magic link flow
+          // Run the OIDC process with Descope's magic link flow
           if (userEmail) {
             console.log(`Initiating magic link flow for: ${userEmail}`);
             initiateOIDCMagicLink(userEmail);

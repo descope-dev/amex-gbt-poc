@@ -4,15 +4,18 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 32, 96; /* Amex GBT dark blue */
+  --background-end-rgb: 0, 47, 135; /* Amex GBT blue */
+  --amex-blue: 0, 47, 135;
+  --amex-dark-blue: 0, 32, 96;
+  --amex-light-blue: 0, 114, 206;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 0, 32, 96;
+    --background-end-rgb: 0, 47, 135;
   }
 }
 
@@ -24,4 +27,34 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Amex GBT specific styles */
+.amex-blue-bg {
+  background-color: rgb(var(--amex-blue));
+}
+
+.amex-dark-blue-bg {
+  background-color: rgb(var(--amex-dark-blue));
+}
+
+.amex-light-blue-bg {
+  background-color: rgb(var(--amex-light-blue));
+}
+
+.amex-blue-text {
+  color: rgb(var(--amex-blue));
+}
+
+.amex-button {
+  background-color: rgb(var(--amex-blue));
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.amex-button:hover {
+  background-color: rgb(var(--amex-light-blue));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
