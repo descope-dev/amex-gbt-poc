@@ -1,6 +1,7 @@
 "use client";
 
 import { Descope } from "@descope/nextjs-sdk";
+import { useDescope } from "@descope/nextjs-sdk/client";
 import { useEffect, useState } from "react";
 import { API_URL, client_id } from "../utils";
 import { useSearchParams } from "next/navigation";
@@ -9,6 +10,7 @@ const Page = () => {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
   const [errorDescription, setErrorDescription] = useState<string | null>(null);
+  const sdk = useDescope();
 
   useEffect(() => {
     // Check for error parameters in the URL
@@ -20,19 +22,13 @@ const Page = () => {
       setErrorDescription(errorDescParam);
       console.error(`OIDC Error: ${errorParam} - ${errorDescParam}`);
     }
-
-    // Add debugging to check if we're coming back from a failed authentication
-    const stateParam = searchParams.get("state");
-    if (stateParam) {
-      console.log("State parameter detected in URL:", stateParam);
-      const storedState = localStorage.getItem("oidc_state");
-      console.log("Stored state:", storedState);
-    }
   }, [searchParams]);
 
-  // Function to initiate magic link flow via OIDC
+  // Function to initiate OIDC flow via SDK
   const initiateOIDCMagicLink = async (email: string) => {
     try {
+      console.log(`Initiating OIDC magic link flow for: ${email}`);
+      
       // Clear any previous state data
       localStorage.removeItem("oidc_code_verifier");
       localStorage.removeItem("oidc_timestamp");
@@ -40,13 +36,13 @@ const Page = () => {
 
       // Generate code verifier and challenge for PKCE
       const codeVerifier = generateCodeVerifier();
-
       const state = generateCodeVerifier();
       const codeChallenge = await generateCodeChallenge(codeVerifier);
 
       // Store the code verifier in localStorage
       localStorage.setItem("oidc_code_verifier", codeVerifier);
       localStorage.setItem("oidc_timestamp", Date.now().toString());
+      localStorage.setItem("oidc_state", state);
 
       // Construct the base URL for Descope API
       let baseURL = "api.descope.com";
@@ -72,8 +68,13 @@ const Page = () => {
 
       console.log("Initiating OIDC magic link flow:", authUrl);
 
+      // Show a message to the user that they should wait for redirection
+      setError("redirecting");
+      setErrorDescription("Redirecting to authentication service...");
+
       // Redirect to the authorization URL
       window.location.href = authUrl;
+      
     } catch (error) {
       console.error("Error initiating OIDC magic link flow:", error);
       setError("initialization_failed");
@@ -126,49 +127,58 @@ const Page = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 max-w-md">
+        <div className={`border px-4 py-3 rounded mb-4 max-w-md ${error === "redirecting" ? "bg-blue-100 border-blue-400 text-blue-700" : "bg-red-100 border-red-400 text-red-700"}`}>
           <h3 className="font-bold">
-            {error.replace(/_/g, " ").toUpperCase()}
+            {error === "redirecting" ? "REDIRECTING..." : error.replace(/_/g, " ").toUpperCase()}
           </h3>
           <p>
             {errorDescription ||
               "An error occurred during authentication. Please try again."}
           </p>
-          <button
-            onClick={retryLogin}
-            className="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-          >
-            Try Again
-          </button>
+          {error !== "redirecting" && (
+            <button
+              onClick={retryLogin}
+              className="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+            >
+              Try Again
+            </button>
+          )}
         </div>
       )}
 
-      <Descope
-        flowId="sign-up-or-in-passwords-amex"
-        onSuccess={(e: any) => {
-          // Extract user email from the authentication response
-          const userEmail = e.detail.user.email;
+      {!error || error !== "redirecting" ? (
+        <Descope
+          flowId="sign-up-or-in-passwords-amex"
+          onSuccess={(e: any) => {
+            // Extract user email from the authentication response
+            const userEmail = e.detail.user.email;
 
-          // Run the OIDC process with Descope's magic link flow
-          if (userEmail) {
-            console.log(`Initiating magic link flow for: ${userEmail}`);
-            initiateOIDCMagicLink(userEmail);
-          } else {
-            console.error("User email not found in authentication response");
-            setError("missing_email");
+            // Run the OIDC flow with Descope
+            if (userEmail) {
+              initiateOIDCMagicLink(userEmail);
+            } else {
+              console.error("User email not found in authentication response");
+              setError("missing_email");
+              setErrorDescription(
+                "User email not found in authentication response. Please try again."
+              );
+            }
+          }}
+          onError={(e: any) => {
+            console.log("Could not log in!", e);
+            setError("authentication_failed");
             setErrorDescription(
-              "User email not found in authentication response. Please try again."
+              e.error?.message || "Authentication failed. Please try again."
             );
-          }
-        }}
-        onError={(e: any) => {
-          console.log("Could not log in!", e);
-          setError("authentication_failed");
-          setErrorDescription(
-            e.error?.message || "Authentication failed. Please try again."
-          );
-        }}
-      />
+          }}
+        />
+      ) : (
+        <div className="text-center">
+          <div className="loader mt-2 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
