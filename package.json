@@ -9,13 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@descope/nextjs-sdk": "^0.7.1",
+    "@descope/nextjs-sdk": "0.12.0",
     "jwt-decode": "^4.0.0",
     "next": "14.2.21",
+    "oidc-client-ts": "^3.2.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

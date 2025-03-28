@@ -1,39 +1,60 @@
-'use client'
+"use client";
 
-export default function Page() {
+import {
+  useDescope,
+  getSessionToken,
+  getRefreshToken,
+  useSession,
+} from "@descope/nextjs-sdk/client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
+export default function Dashboard() {
+  const sdk = useDescope();
+  const router = useRouter();
+  const { isAuthenticated } = useSession();
 
-    return (
-        <div className="w-full min-h-screen bg-gradient-to-b from-blue-900 to-blue-800 text-white flex flex-col items-center justify-center p-6">
-            <div className="bg-white text-blue-900 rounded-lg shadow-xl p-8 max-w-md w-full">
-                <div className="flex justify-center mb-6">
-                    {/* Amex GBT Logo placeholder - replace with actual logo if available */}
-                    <div className="text-2xl font-bold text-blue-900">Amex GBT</div>
-                </div>
-                
-                <div className="text-center">
-                    <div className="flex items-center justify-center mb-4">
-                        <h1 className="font-bold text-2xl mr-2">You are logged in</h1>
-                        <span className="text-green-500 text-2xl">✅</span>
-                    </div>
-                    
-                    <p className="mb-6 text-gray-600">
-                        Welcome to your Amex GBT dashboard. Your session is active and secure.
-                    </p>
-                    
-                    <p className="text-sm text-gray-500 mb-6">
-                        Authentication tokens have been set in your browser cookies.
-                    </p>
-                    
-                    <button 
-                        className="bg-blue-900 hover:bg-blue-800 text-white rounded-md px-6 py-2 transition-colors duration-300 w-full"
-                        onClick={() => {
-                            window.location.href = 'api/auth/logout';
-                        }}>
-                        Log out
-                    </button>
-                </div>
+  useEffect(() => {
+    // This is a simple example, so we're just setting the generic tokens here.
+    if (isAuthenticated) {
+      Cookies.set("access_token", getSessionToken(), { path: "/" });
+      Cookies.set("refresh_token", getRefreshToken(), { path: "/" });
+    }
+  }, [sdk, isAuthenticated]);
+
+  const handleLogout = async () => {
+    // Clear all cookies
+    Cookies.remove("access_token", { path: "/" });
+    Cookies.remove("refresh_token", { path: "/" });
+
+    // Logout from Descope
+    await sdk.logout();
+
+    // Redirect to login
+    router.push("/login");
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="px-4 py-6 sm:px-0">
+          <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                Welcome to the Dashboard
+              </h1>
+              <p className="text-gray-600">You are logged in.</p>
+              <button
+                onClick={handleLogout}
+                className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Logout
+              </button>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }

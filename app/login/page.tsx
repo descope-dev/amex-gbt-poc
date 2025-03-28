@@ -1,10 +1,8 @@
 "use client";
 
-import { Descope } from "@descope/nextjs-sdk";
 import { useDescope } from "@descope/nextjs-sdk/client";
-import { useEffect, useState, Suspense } from "react";
-import { API_URL, client_id } from "../utils";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState, Suspense, useCallback } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const Page = () => {
   return (
@@ -16,9 +14,43 @@ const Page = () => {
 
 function LoginPageContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [errorDescription, setErrorDescription] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const sdk = useDescope();
+
+  // This function initiates the OIDC flow with the provided email
+  const onLogin = useCallback(
+    (email: string) => {
+      setIsLoading(true);
+      sdk.oidc
+        .loginWithRedirect({
+          redirect_uri: `${window.location.origin}/dashboard`,
+          login_hint: email,
+        })
+        .then((res) => {
+          if (!res.ok) {
+            setError("authentication_failed");
+            setErrorDescription(JSON.stringify(res.error));
+            return;
+          }
+          // The function will redirect the user to the OIDC login page
+          // and will return the user to the callback URL after the login
+        })
+        .catch((err) => {
+          console.error("Login error:", err);
+          setError("authentication_failed");
+          setErrorDescription("Failed to initiate login. Please try again.");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    },
+    [sdk]
+  );
 
   useEffect(() => {
     // Check for error parameters in the URL
@@ -32,173 +64,124 @@ function LoginPageContent() {
     }
   }, [searchParams]);
 
-  // Function to initiate OIDC flow via SDK
-  const initiateOIDCMagicLink = async (email: string) => {
-    try {
-      console.log(`Initiating OIDC magic link flow for: ${email}`);
-
-      // Clear any previous state data
-      localStorage.removeItem("oidc_code_verifier");
-      localStorage.removeItem("oidc_timestamp");
-      localStorage.removeItem("oidc_state");
-
-      // Generate code verifier and challenge for PKCE
-      const codeVerifier = generateCodeVerifier();
-      const state = generateCodeVerifier();
-      const codeChallenge = await generateCodeChallenge(codeVerifier);
-
-      // Store the code verifier in localStorage
-      localStorage.setItem("oidc_code_verifier", codeVerifier);
-      localStorage.setItem("oidc_timestamp", Date.now().toString());
-      localStorage.setItem("oidc_state", state);
-
-      // Construct the base URL for Descope API
-      let baseURL = "api.descope.com";
-      if (
-        process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID &&
-        process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID.length >= 32
-      ) {
-        const localURL = process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID.substring(
-          1,
-          5
-        );
-        baseURL = [baseURL.slice(0, 4), localURL, ".", baseURL.slice(4)].join(
-          ""
-        );
-      }
-
-      // Set up redirect URI for the callback
-      const redirect_uri = API_URL + "/api/auth/callback";
-
-      // Let Descope generate its own state parameter
-      // We'll just pass the code_challenge directly and handle the PKCE in the callback
-      const authUrl = `https://${baseURL}/oauth2/v1/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}&scope=openid&code_challenge=${codeChallenge}&code_challenge_method=S256&state=${state}&flow_id=sign-in-magic-link&login_hint=${email}`;
-
-      console.log("Initiating OIDC magic link flow:", authUrl);
-
-      // Show a message to the user that they should wait for redirection
-      setError("redirecting");
-      setErrorDescription("Redirecting to authentication service...");
-
-      // Redirect to the authorization URL
-      window.location.href = authUrl;
-    } catch (error) {
-      console.error("Error initiating OIDC magic link flow:", error);
-      setError("initialization_failed");
-      setErrorDescription(
-        "Failed to initiate the magic link flow. Please try again."
-      );
-    }
-  };
-
-  // Helper function to generate code verifier for PKCE
-  function generateCodeVerifier() {
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
-    const charactersLength = characters.length;
-
-    for (let i = 0; i < 64; i++) {
-      // 64 characters for better compatibility
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    return result;
-  }
-
-  // Helper function to generate code challenge from verifier
-  function generateCodeChallenge(verifier: string) {
-    return crypto.subtle
-      .digest("SHA-256", new TextEncoder().encode(verifier))
-      .then((arrayBuffer) => {
-        const base64Url = btoa(
-          String.fromCharCode(...new Uint8Array(arrayBuffer))
-        )
-          .replace(/=/g, "")
-          .replace(/\+/g, "-")
-          .replace(/\//g, "_");
-        return base64Url;
-      });
-  }
-
   // Function to retry login after an error
   const retryLogin = () => {
     setError(null);
     setErrorDescription(null);
-    // Clear any stored state
-    localStorage.removeItem("oidc_code_verifier");
-    localStorage.removeItem("oidc_timestamp");
-    localStorage.removeItem("oidc_state");
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email && password) {
+      onLogin(email);
+    }
+  };
+
+  // Generic login page
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      {error && (
-        <div
-          className={`border px-4 py-3 rounded mb-4 max-w-md ${
-            error === "redirecting"
-              ? "bg-blue-100 border-blue-400 text-blue-700"
-              : "bg-red-100 border-red-400 text-red-700"
-          }`}
-        >
-          <h3 className="font-bold">
-            {error === "redirecting"
-              ? "REDIRECTING..."
-              : error.replace(/_/g, " ").toUpperCase()}
-          </h3>
-          <p>
-            {errorDescription ||
-              "An error occurred during authentication. Please try again."}
-          </p>
-          {error !== "redirecting" && (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-xl shadow-lg">
+        <div>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Sign in to your account
+          </h2>
+        </div>
+
+        {error && (
+          <div className="border px-4 py-3 rounded bg-red-100 border-red-400 text-red-700">
+            <h3 className="font-bold">
+              {error.replace(/_/g, " ").toUpperCase()}
+            </h3>
+            <p>
+              {errorDescription ||
+                "An error occurred during authentication. Please try again."}
+            </p>
             <button
               onClick={retryLogin}
               className="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
             >
               Try Again
             </button>
-          )}
-        </div>
-      )}
-
-      {!error || error !== "redirecting" ? (
-        <Descope
-          flowId="sign-up-or-in-passwords-amex"
-          onSuccess={(e: any) => {
-            // Extract user email from the authentication response
-            const userEmail = e.detail.user.email;
-
-            // Run the OIDC flow with Descope
-            if (userEmail) {
-              initiateOIDCMagicLink(userEmail);
-            } else {
-              console.error("User email not found in authentication response");
-              setError("missing_email");
-              setErrorDescription(
-                "User email not found in authentication response. Please try again."
-              );
-            }
-          }}
-          onError={(e: any) => {
-            console.log("Could not log in!", e);
-            setError("authentication_failed");
-            setErrorDescription(
-              e.error?.message || "Authentication failed. Please try again."
-            );
-          }}
-        />
-      ) : (
-        <div className="text-center">
-          <div
-            className="loader mt-2 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-            role="status"
-          >
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-              Loading...
-            </span>
           </div>
-        </div>
-      )}
+        )}
+
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
+                isLoading
+                  ? "bg-blue-400 cursor-not-allowed"
+                  : "bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              }`}
+            >
+              {isLoading ? (
+                <span className="flex items-center">
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Signing in...
+                </span>
+              ) : (
+                "Sign in"
+              )}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

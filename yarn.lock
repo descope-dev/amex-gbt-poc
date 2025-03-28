@@ -12,15 +12,15 @@
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@descope/access-key-management-widget@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/@descope/access-key-management-widget/-/access-key-management-widget-0.4.1.tgz"
-  integrity sha512-01L7ryE+Z/R7rZSW4ei93P4IvtD46JvcO6bNRAx/EE/3iJ/NyRcPFm9XRZy4o9Tb57J+xmKs79yrEZK5NTgnvA==
+"@descope/access-key-management-widget@0.4.11":
+  version "0.4.11"
+  resolved "https://registry.npmjs.org/@descope/access-key-management-widget/-/access-key-management-widget-0.4.11.tgz"
+  integrity sha512-EBvDmmSTUnSOAvins8NFQOqgpg1+rKyyqtOoCZRbTrflvIkByCo9jqH2B1x0DWYSuIbYNdLsr+/NL5//KMKsMQ==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-js-sdk" "1.29.0"
     "@reduxjs/toolkit" "^2.0.1"
     immer "^10.0.3"
     redux "5.0.1"
@@ -28,15 +28,15 @@
     reselect "5.1.1"
     tslib "2.8.1"
 
-"@descope/applications-portal-widget@0.3.1":
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/@descope/applications-portal-widget/-/applications-portal-widget-0.3.1.tgz"
-  integrity sha512-xdtewFHFu2zrKHRpJFjuetrXBQIvaJDv3HoJUxOfNrXDZyEiiivTgWueVsC/iGmjURNg+RQDx7YwhEufX84HwQ==
+"@descope/applications-portal-widget@0.3.11":
+  version "0.3.11"
+  resolved "https://registry.npmjs.org/@descope/applications-portal-widget/-/applications-portal-widget-0.3.11.tgz"
+  integrity sha512-GjXb8/80ZUYOiKLiJlPJIkDej3nZkilBsZaiU1H2u3c0wBYaCinC84gptRgui4nDA7niVdR8L51yk2NsVtL1jg==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-js-sdk" "1.29.0"
     "@reduxjs/toolkit" "^2.0.1"
     immer "^10.0.3"
     redux "5.0.1"
@@ -44,15 +44,15 @@
     reselect "5.1.1"
     tslib "2.8.1"
 
-"@descope/audit-management-widget@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/@descope/audit-management-widget/-/audit-management-widget-0.4.1.tgz"
-  integrity sha512-BBq62zwAmBhbLaeGfatU9EnWpbSjaTxR1iQSjkT71Q3cYpd0OEG1dtZpgF/0nk3zHfIM5zO7mNMDTH82zr1mkw==
+"@descope/audit-management-widget@0.4.11":
+  version "0.4.11"
+  resolved "https://registry.npmjs.org/@descope/audit-management-widget/-/audit-management-widget-0.4.11.tgz"
+  integrity sha512-4T9jnfGwA9jC2VPeYPzeSmH6g3Fw8dtBMI1mTPqmN1NC/0iQ39AhtIVlJ2SY73iV9iU8kedJOxJTpQN3l2kVYQ==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-js-sdk" "1.29.0"
     "@reduxjs/toolkit" "^2.0.1"
     immer "^10.0.3"
     redux "5.0.1"
@@ -67,10 +67,10 @@
   dependencies:
     jwt-decode "4.0.0"
 
-"@descope/core-js-sdk@2.36.0":
-  version "2.36.0"
-  resolved "https://registry.npmjs.org/@descope/core-js-sdk/-/core-js-sdk-2.36.0.tgz"
-  integrity sha512-FB99bAJml//Dm/QtX7KCjpK+/1FkZDUN3ZNqCsirxt+mKYaIC6CoI6xibYFgIPA4AhrM15cFb3hP5Nzo0YQVNA==
+"@descope/core-js-sdk@2.40.0":
+  version "2.40.0"
+  resolved "https://registry.npmjs.org/@descope/core-js-sdk/-/core-js-sdk-2.40.0.tgz"
+  integrity sha512-hFr/SzQO0QbyDaI1LlN//HKi3hXNJAnU0lFUpsqwo92YmCvYzhSZ7r6aBvT0DU2jaXmvt/0Y9TyNQuEKsGpT/A==
   dependencies:
     jwt-decode "4.0.0"
 
@@ -79,15 +79,15 @@
   resolved "https://registry.npmjs.org/@descope/escape-markdown/-/escape-markdown-0.1.5.tgz"
   integrity sha512-TbYhdQCdJoySICCASVuWed8ciQcHt5/zMJc9ar8qvyV0bY9IJ8SKTw+6j9mg0xhnwG9bSivDW2hvqJk45hhxUQ==
 
-"@descope/nextjs-sdk@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@descope/nextjs-sdk/-/nextjs-sdk-0.7.1.tgz"
-  integrity sha512-8ga8xQrATRnOnavFThQWjShifFh0BmtOjFCvnsvd1P70BHE0LB44Pwo/F3eKyisx90aYapj4XwfN9yfgp/3ZLw==
+"@descope/nextjs-sdk@0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/@descope/nextjs-sdk/-/nextjs-sdk-0.12.0.tgz"
+  integrity sha512-S4wdP7mM6ITUyjTVudFjcYvueIwtfojE+PnP3QTTka5BjMG6dXrP4CSyBTipR7tg8gNhzAX+rdjvQ8axqRZAWg==
   dependencies:
-    "@descope/core-js-sdk" "2.36.0"
+    "@descope/core-js-sdk" "2.40.0"
     "@descope/node-sdk" "1.6.13"
-    "@descope/react-sdk" "2.7.2"
-    "@descope/web-component" "3.37.0"
+    "@descope/react-sdk" "2.12.0"
+    "@descope/web-component" "3.40.4"
   optionalDependencies:
     "@descope/web-js-sdk" ">=1"
 
@@ -101,31 +101,31 @@
     jose "5.2.2"
     tslib "^2.0.0"
 
-"@descope/react-sdk@2.7.2":
-  version "2.7.2"
-  resolved "https://registry.npmjs.org/@descope/react-sdk/-/react-sdk-2.7.2.tgz"
-  integrity sha512-pUGM/ZbQ7mEIPGy3WxRZa+Efx1E/Iht7c01ghFFNutBkEdlK363MyAD3s/ky7YbKPTaByLFolvV5T4X3HM1RFQ==
+"@descope/react-sdk@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.npmjs.org/@descope/react-sdk/-/react-sdk-2.12.0.tgz"
+  integrity sha512-IMLDwxKACcOA9aPukmXYm6lEf6JrurvSoFXBCcd9uInPnEU2PL85s0yG6HfLvXY/3ghA+T3z8kxhSWmHlPGV/Q==
   dependencies:
-    "@descope/access-key-management-widget" "0.4.1"
-    "@descope/applications-portal-widget" "0.3.1"
-    "@descope/audit-management-widget" "0.4.1"
-    "@descope/core-js-sdk" "2.36.0"
-    "@descope/role-management-widget" "0.3.1"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/user-management-widget" "0.7.1"
-    "@descope/user-profile-widget" "0.3.2"
-    "@descope/web-component" "3.37.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/access-key-management-widget" "0.4.11"
+    "@descope/applications-portal-widget" "0.3.11"
+    "@descope/audit-management-widget" "0.4.11"
+    "@descope/core-js-sdk" "2.40.0"
+    "@descope/role-management-widget" "0.3.11"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/user-management-widget" "0.7.11"
+    "@descope/user-profile-widget" "0.4.8"
+    "@descope/web-component" "3.40.4"
+    "@descope/web-js-sdk" "1.29.0"
 
-"@descope/role-management-widget@0.3.1":
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/@descope/role-management-widget/-/role-management-widget-0.3.1.tgz"
-  integrity sha512-FWOjUi4ZNRF10yJv7LJGAXU2IFCBhfOyRrZ0A3rh3ZfMRy2iroAo20jU3IiklrGBXBYU0zXK+J/hhYbgBov+gg==
+"@descope/role-management-widget@0.3.11":
+  version "0.3.11"
+  resolved "https://registry.npmjs.org/@descope/role-management-widget/-/role-management-widget-0.3.11.tgz"
+  integrity sha512-VvOagU/6FG0MBVISjE6LlLHME1ahm86ScWNTLaoV9aYLitXNb8++9LhxVUD+H52GmkBMzUCoBbjSApsU/K2rRg==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-js-sdk" "1.29.0"
     "@reduxjs/toolkit" "^2.0.1"
     immer "^10.0.3"
     redux "5.0.1"
@@ -133,39 +133,39 @@
     reselect "5.1.1"
     tslib "2.8.1"
 
-"@descope/sdk-component-drivers@0.2.51":
-  version "0.2.51"
-  resolved "https://registry.npmjs.org/@descope/sdk-component-drivers/-/sdk-component-drivers-0.2.51.tgz"
-  integrity sha512-8rRhu53R/9Du54QhxzxFbJ8ys3VKBstU2+cyPyi5MGBhW3Vv9AYe2Pcz9yiHh5peCVMg36A0DI0Q1PWP0rKTIw==
+"@descope/sdk-component-drivers@0.2.52":
+  version "0.2.52"
+  resolved "https://registry.npmjs.org/@descope/sdk-component-drivers/-/sdk-component-drivers-0.2.52.tgz"
+  integrity sha512-wCkysVBW43yIJhMW7sUTXn5qyG2ihIpJP5tPdCu8hWuFAh9oOULIdz1zgi/RG85Hwkx64A64LOnpGq7ZYS8GwA==
   dependencies:
-    "@descope/sdk-helpers" "0.2.0"
+    "@descope/sdk-helpers" "0.3.0"
     tslib "2.8.1"
 
-"@descope/sdk-helpers@0.2.0":
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/@descope/sdk-helpers/-/sdk-helpers-0.2.0.tgz"
-  integrity sha512-HoY01yVu0RG37cowl8YmTPMbPweJIuBJI5EfT4rc/jEid6kJ0AENTTLRoMA3gxjz1sguevE2BHEQSvIf7iriUQ==
+"@descope/sdk-helpers@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/@descope/sdk-helpers/-/sdk-helpers-0.3.0.tgz"
+  integrity sha512-x3SMc5i1julo/J7boX0UiX33bWFv4nRrpJuw3ua2DjRYocDFX595r4BWu3uMvuwU4aCWUzLDgvkVdFNtSXhwDw==
   dependencies:
     tslib "2.8.1"
 
-"@descope/sdk-mixins@0.11.0":
-  version "0.11.0"
-  resolved "https://registry.npmjs.org/@descope/sdk-mixins/-/sdk-mixins-0.11.0.tgz"
-  integrity sha512-HeFeD7v+KbETO7nLOkNSm43wVTNijmu6o5LNmDZSsRYO1kGsEliroOaCN7QW2OK5KcHYoEiacORPIzolXG5xQQ==
+"@descope/sdk-mixins@0.11.3":
+  version "0.11.3"
+  resolved "https://registry.npmjs.org/@descope/sdk-mixins/-/sdk-mixins-0.11.3.tgz"
+  integrity sha512-OSPvfcDjCCyabcnccU17W05i16SAskBnrPdvec3MzQhSjS6Us9hl9Ay1AUtI/p0y0DeXPxkEELofrTILrmxbvQ==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
     tslib "2.8.1"
 
-"@descope/user-management-widget@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@descope/user-management-widget/-/user-management-widget-0.7.1.tgz"
-  integrity sha512-jBA9GjmzWq1EToAtKRgApJ3gG+Yp25psCYtCP+QaDdZcgsVA/vU1qqZt3uQz6w62v/teIAQQlw9I17YZGytm/Q==
+"@descope/user-management-widget@0.7.11":
+  version "0.7.11"
+  resolved "https://registry.npmjs.org/@descope/user-management-widget/-/user-management-widget-0.7.11.tgz"
+  integrity sha512-LlGF9j/k5rarOQTojp9RcqfPq//RvouNg1OE0a3+QEufY1J8Jh6wVopVk43Mrwoyc1owUq5WP5DYNN4JRo7i+w==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-js-sdk" "1.29.0"
     "@reduxjs/toolkit" "^2.0.1"
     immer "^10.0.3"
     libphonenumber-js "1.11.17"
@@ -174,16 +174,16 @@
     reselect "5.1.1"
     tslib "2.8.1"
 
-"@descope/user-profile-widget@0.3.2":
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/@descope/user-profile-widget/-/user-profile-widget-0.3.2.tgz"
-  integrity sha512-tXJzXhNfrjUeTutnDM2fYmub/AjGmXsSUeJkv+J8tRg0P5pFmlcGT6OZakyH1UsEQ7WVxSitPmnmBMpclelVGw==
+"@descope/user-profile-widget@0.4.8":
+  version "0.4.8"
+  resolved "https://registry.npmjs.org/@descope/user-profile-widget/-/user-profile-widget-0.4.8.tgz"
+  integrity sha512-iluBqZVQVn2rH8JZxHzJOMaxVMKbqKbxDIldJiJTTwjTnEY27pO/5rFEdWtVr2MRp5qqkS44XIDElgQtWnopxA==
   dependencies:
-    "@descope/sdk-component-drivers" "0.2.51"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-component" "3.37.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-component-drivers" "0.2.52"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-component" "3.40.4"
+    "@descope/web-js-sdk" "1.29.0"
     "@reduxjs/toolkit" "^2.0.1"
     immer "^10.0.3"
     redux "5.0.1"
@@ -191,26 +191,26 @@
     reselect "5.1.1"
     tslib "2.8.1"
   optionalDependencies:
-    "@descope/core-js-sdk" "2.36.0"
+    "@descope/core-js-sdk" "2.40.0"
 
-"@descope/web-component@3.37.0":
-  version "3.37.0"
-  resolved "https://registry.npmjs.org/@descope/web-component/-/web-component-3.37.0.tgz"
-  integrity sha512-hQykETuC3q2baNHFntV0b6ZsHRhRzf8Jie8mOW1P00o2l4xPpO5SDNuvpx+TUlZ4QH9NoAUHt8cikFnBc9Tr0A==
+"@descope/web-component@3.40.4":
+  version "3.40.4"
+  resolved "https://registry.npmjs.org/@descope/web-component/-/web-component-3.40.4.tgz"
+  integrity sha512-w5tLVkygEKjpKmosAF6CrSt6Rimo0SvQ68DY+9YkeJl/B6E6XbIm09LvYMvWSmb6eia9YwICZ/D+e/8G1uu5Cg==
   dependencies:
     "@descope/escape-markdown" "0.1.5"
-    "@descope/sdk-helpers" "0.2.0"
-    "@descope/sdk-mixins" "0.11.0"
-    "@descope/web-js-sdk" "1.25.0"
+    "@descope/sdk-helpers" "0.3.0"
+    "@descope/sdk-mixins" "0.11.3"
+    "@descope/web-js-sdk" "1.29.0"
     "@fingerprintjs/fingerprintjs-pro" "3.11.6"
     tslib "2.8.1"
 
-"@descope/web-js-sdk@>=1", "@descope/web-js-sdk@1.25.0":
-  version "1.25.0"
-  resolved "https://registry.npmjs.org/@descope/web-js-sdk/-/web-js-sdk-1.25.0.tgz"
-  integrity sha512-Fx5Tyrf6cxse5qUdaFBAk3aDT6LZooMcu1rhp6XTT3ZuBeKHnJRrI3E8FDSBdqGIPF/0G3uW4dq2QX+h6vUj2Q==
+"@descope/web-js-sdk@>=1", "@descope/web-js-sdk@1.29.0":
+  version "1.29.0"
+  resolved "https://registry.npmjs.org/@descope/web-js-sdk/-/web-js-sdk-1.29.0.tgz"
+  integrity sha512-8A2i/7nLcSMEkrD/JZ7+Z3ROXcrKdXQgKa+fNkty5MBhO7El95sbmusuN59v9l+22iJtbKRfN/JLc0v+nEZc/Q==
   dependencies:
-    "@descope/core-js-sdk" "2.36.0"
+    "@descope/core-js-sdk" "2.40.0"
     "@fingerprintjs/fingerprintjs-pro" "3.11.6"
     js-cookie "3.0.5"
     jwt-decode "4.0.0"
@@ -358,46 +358,6 @@
   resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.2.21.tgz"
   integrity sha512-HwEjcKsXtvszXz5q5Z7wCtrHeTTDSTgAbocz45PHMUjU3fBYInfvhR+ZhavDRUYLonm53aHZbB09QtJVJj8T7g==
 
-"@next/swc-darwin-x64@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-14.2.21.tgz"
-  integrity sha512-TSAA2ROgNzm4FhKbTbyJOBrsREOMVdDIltZ6aZiKvCi/v0UwFmwigBGeqXDA97TFMpR3LNNpw52CbVelkoQBxA==
-
-"@next/swc-linux-arm64-gnu@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-linux-arm64-gnu/-/swc-linux-arm64-gnu-14.2.21.tgz"
-  integrity sha512-0Dqjn0pEUz3JG+AImpnMMW/m8hRtl1GQCNbO66V1yp6RswSTiKmnHf3pTX6xMdJYSemf3O4Q9ykiL0jymu0TuA==
-
-"@next/swc-linux-arm64-musl@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-linux-arm64-musl/-/swc-linux-arm64-musl-14.2.21.tgz"
-  integrity sha512-Ggfw5qnMXldscVntwnjfaQs5GbBbjioV4B4loP+bjqNEb42fzZlAaK+ldL0jm2CTJga9LynBMhekNfV8W4+HBw==
-
-"@next/swc-linux-x64-gnu@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-14.2.21.tgz"
-  integrity sha512-uokj0lubN1WoSa5KKdThVPRffGyiWlm/vCc/cMkWOQHw69Qt0X1o3b2PyLLx8ANqlefILZh1EdfLRz9gVpG6tg==
-
-"@next/swc-linux-x64-musl@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-14.2.21.tgz"
-  integrity sha512-iAEBPzWNbciah4+0yI4s7Pce6BIoxTQ0AGCkxn/UBuzJFkYyJt71MadYQkjPqCQCJAFQ26sYh7MOKdU+VQFgPg==
-
-"@next/swc-win32-arm64-msvc@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-win32-arm64-msvc/-/swc-win32-arm64-msvc-14.2.21.tgz"
-  integrity sha512-plykgB3vL2hB4Z32W3ktsfqyuyGAPxqwiyrAi2Mr8LlEUhNn9VgkiAl5hODSBpzIfWweX3er1f5uNpGDygfQVQ==
-
-"@next/swc-win32-ia32-msvc@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-win32-ia32-msvc/-/swc-win32-ia32-msvc-14.2.21.tgz"
-  integrity sha512-w5bacz4Vxqrh06BjWgua3Yf7EMDb8iMcVhNrNx8KnJXt8t+Uu0Zg4JHLDL/T7DkTCEEfKXO/Er1fcfWxn2xfPA==
-
-"@next/swc-win32-x64-msvc@14.2.21":
-  version "14.2.21"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.2.21.tgz"
-  integrity sha512-sT6+llIkzpsexGYZq8cjjthRyRGe5cJVhqh12FmlbxHqna6zsDDK8UNaV7g41T6atFHCJUPeLb3uyAwrBwy0NA==
-
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -420,9 +380,9 @@
     fastq "^1.6.0"
 
 "@reduxjs/toolkit@^2.0.1":
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-2.6.0.tgz"
-  integrity sha512-mWJCYpewLRyTuuzRSEC/IwIBBkYg2dKtQas8mty5MaV2iXzcmicS3gW554FDeOvLnY3x13NIk8MB1e8wHO7rqQ==
+  version "2.6.1"
+  resolved "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-2.6.1.tgz"
+  integrity sha512-SSlIqZNYhqm/oMkXbtofwZSt9lrncblzo6YcZ9zoX+zLngRBrCOjK4lNLdkNucJF58RHOWrD9txT3bT3piH7Zw==
   dependencies:
     immer "^10.0.3"
     redux "^5.0.1"
@@ -457,6 +417,11 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
 
+"@types/js-cookie@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.npmjs.org/@types/js-cookie/-/js-cookie-3.0.6.tgz"
+  integrity sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==
+
 "@types/json-schema@^7.0.12", "@types/json-schema@^7.0.15":
   version "7.0.15"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz"
@@ -479,7 +444,7 @@
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.0.2.tgz"
   integrity sha512-c1s+7TKFaDRRxr1TxccIX2u7sfCnc3RxkVyBIUA2lCpyqCF+QoAwQ/CBg7bsMdVwP120HEH143VQezKtef5nCg==
 
-"@types/react@^19.0.0", "@types/react@>=17", "@types/react@>=18":
+"@types/react@^19.0.0":
   version "19.0.2"
   resolved "https://registry.npmjs.org/@types/react/-/react-19.0.2.tgz"
   integrity sha512-USU8ZI/xyKJwFTpjSVIrSeHBVAGagkHQKPNbxeWwql/vDmnTIBgx+TJnhFnj1NXgz8XfprU0egV2dROLGpsBEg==
@@ -508,7 +473,7 @@
     semver "^7.5.4"
     ts-api-utils "^1.0.1"
 
-"@typescript-eslint/parser@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0", "@typescript-eslint/parser@^7.0.0":
+"@typescript-eslint/parser@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
   version "7.2.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-7.2.0.tgz"
   integrity sha512-5FKsVcHTk6TafQKQbuIVkXq58Fnbkd2wDL4LB7AURN7RUOu1utVP+G8+6u3ZhEroW3DF6hyo3ZEXxgKgp4KeCg==
@@ -582,7 +547,7 @@ acorn-jsx@^5.3.2:
   resolved "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
-"acorn@^6.0.0 || ^7.0.0 || ^8.0.0", acorn@^8.14.0:
+acorn@^8.14.0:
   version "8.14.0"
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.14.0.tgz"
   integrity sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==
@@ -792,7 +757,7 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-browserslist@^4.21.10, "browserslist@>= 4.21.0":
+browserslist@^4.21.10:
   version "4.22.2"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.22.2.tgz"
   integrity sha512-0UgcrvQmBDvZHFGdYUehrCNIazki7/lUP3kkoi/r3YB2amZbFM9J43ZRkJTXBUZK4gmx56+Sqk9+Vs9mwZx9+A==
@@ -1194,7 +1159,7 @@ eslint-module-utils@^2.12.0, eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-import@*, eslint-plugin-import@^2.31.0:
+eslint-plugin-import@^2.31.0:
   version "2.31.0"
   resolved "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.31.0.tgz"
   integrity sha512-ixmkI62Rbc2/w8Vfxyh1jQRTdRTF52VxwRVHl/ykPAmqG+Nb7/kNn+byLP0LxPgI7zWA16Jt82SybJInmMia3A==
@@ -1287,7 +1252,7 @@ eslint-visitor-keys@^4.2.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-4.2.0.tgz"
   integrity sha512-UyLnSehNt62FFhSwjZlHmeokpRK59rcz29j+F1/aDgbkbRTk7wIc9XzdoasMUbRNKDM0qQt/+BJ4BrpFeABemw==
 
-eslint@*, "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9", "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9", "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7", "eslint@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0", "eslint@^6.0.0 || ^7.0.0 || >=8.0.0", "eslint@^7.23.0 || ^8.0.0 || ^9.0.0", eslint@^8.56.0, eslint@^9.0.0:
+eslint@^9.0.0:
   version "9.14.0"
   resolved "https://registry.npmjs.org/eslint/-/eslint-9.14.0.tgz"
   integrity sha512-c2FHsVBr87lnUtjP4Yhvk4yEhKrQavGafRA/Se1ouse8PfbfC/Qh9Mxa00yWsZRlqeUB9raXip0aiiUZkgnr9g==
@@ -1863,7 +1828,7 @@ iterator.prototype@^1.1.3:
     reflect.getprototypeof "^1.0.4"
     set-function-name "^2.0.1"
 
-jiti@*, jiti@^1.19.1:
+jiti@^1.19.1:
   version "1.21.0"
   resolved "https://registry.npmjs.org/jiti/-/jiti-1.21.0.tgz"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
@@ -2056,7 +2021,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next@>=14.2.21, next@14.2.21:
+next@14.2.21:
   version "14.2.21"
   resolved "https://registry.npmjs.org/next/-/next-14.2.21.tgz"
   integrity sha512-rZmLwucLHr3/zfDMYbJXbw0ZeoBpirxkXuvsJbk7UPorvPYZhP7vq7aHbKnU7dQNCYIimRrbB2pp3xmf+wsYUg==
@@ -2167,6 +2132,13 @@ object.values@^1.1.6, object.values@^1.2.0:
     call-bind "^1.0.7"
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
+
+oidc-client-ts@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/oidc-client-ts/-/oidc-client-ts-3.2.0.tgz"
+  integrity sha512-wUvVcG3SXzZDKHxi/VGQGaTUk9qguMKfYh26Y1zOVrQsu1zp85JWx/SjZzKSXK5j3NA1RcasgMoaHe6gt1WNtw==
+  dependencies:
+    jwt-decode "^4.0.0"
 
 once@^1.3.0:
   version "1.4.0"
@@ -2302,7 +2274,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8, postcss@^8.0.0, postcss@^8.1.0, postcss@^8.2.14, postcss@^8.4.21, postcss@^8.4.23, postcss@>=8.0.9:
+postcss@^8, postcss@^8.4.23:
   version "8.4.32"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.32.tgz"
   integrity sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==
@@ -2344,7 +2316,7 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-dom@^18, react-dom@^18.2.0:
+react-dom@^18:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -2357,7 +2329,7 @@ react-is@^16.13.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react@^16.9.0 || ^17.0.0 || ^18 || ^19", react@^18, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=17, react@>=18:
+react@^18:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -2383,7 +2355,7 @@ redux-thunk@^3.1.0, redux-thunk@3.1.0:
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-3.1.0.tgz"
   integrity sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==
 
-redux@^5.0.0, redux@^5.0.1, redux@5.0.1:
+redux@^5.0.1, redux@5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/redux/-/redux-5.0.1.tgz"
   integrity sha512-M9/ELqF6fy8FwmkpnF0S3YKOqMyoWJ4+CS5Efg2ct3oY9daQvd/Pc71FpGZsVsbl3Cpb+IIcjBDUnnyBdQbq4w==
@@ -2798,7 +2770,7 @@ typed-array-length@^1.0.6:
     is-typed-array "^1.1.13"
     possible-typed-array-names "^1.0.0"
 
-typescript@^5, typescript@>=3.3.1, typescript@>=4.2.0:
+typescript@^5:
   version "5.3.2"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.3.2.tgz"
   integrity sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==
