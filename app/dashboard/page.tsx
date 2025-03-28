@@ -16,7 +16,7 @@ export default function Dashboard() {
   const { isAuthenticated } = useSession();
 
   useEffect(() => {
-    // This is a simple example, so we're just setting the generic tokens here.
+    // Set generic tokens that the middleware checks for
     if (isAuthenticated) {
       Cookies.set("access_token", getSessionToken(), { path: "/" });
       Cookies.set("refresh_token", getRefreshToken(), { path: "/" });
@@ -24,15 +24,21 @@ export default function Dashboard() {
   }, [sdk, isAuthenticated]);
 
   const handleLogout = async () => {
-    // Clear all cookies
-    Cookies.remove("access_token", { path: "/" });
-    Cookies.remove("refresh_token", { path: "/" });
+    try {
+      // First, clear all cookies
+      Cookies.remove("access_token", { path: "/" });
+      Cookies.remove("refresh_token", { path: "/" });
 
-    // Logout from Descope
-    await sdk.logout();
+      // Then logout from Descope and wait for it to complete
+      await sdk.logout();
 
-    // Redirect to login
-    router.push("/login");
+      // Force a hard reload to clear any cached state
+      window.location.href = "/login";
+    } catch (error) {
+      console.error("Logout error:", error);
+      // If there's an error, still try to redirect
+      window.location.href = "/login";
+    }
   };
 
   return (
@@ -44,7 +50,9 @@ export default function Dashboard() {
               <h1 className="text-3xl font-bold text-gray-900 mb-4">
                 Welcome to the Dashboard
               </h1>
-              <p className="text-gray-600">You are logged in.</p>
+              <p className="text-gray-600">
+                You are logged in with generic Amex tokens
+              </p>
               <button
                 onClick={handleLogout}
                 className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
